@@ -1,0 +1,21 @@
+firstly I created a c file then written a code for kernel then compile that file 
+
+so I got .ko file that file is kernel object or module now I will inject that into the kernel 
+then that file will verfify
+
+
+now we have to print kernel log buffer 
+
+
+function I create in the c file enter the function hello world the name of function is constructor
+
+
+exit function is used to say distructor
+
+
+// what is device tree in kernel && make default the driver pele se hi load hona chaiye 
+
+// install kernel linux into the raspberry pi
+
+installstion of kernel in the raspberrypi then want instert the new kernel again through the cross complation 
+

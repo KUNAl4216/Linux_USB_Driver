@@ -1,0 +1,53 @@
+Steps on Raspberry Pi
+After logging into the Raspberry Pi:
+
+Backup Existing Kernel and Configurations:
+
+bash
+Copy code
+sudo cp /boot/Image /boot/Image.bak
+sudo cp /boot/config.txt /boot/config.bak
+Verify File Locations: Check that the transferred files are in the correct directories:
+
+Kernel image:
+bash
+Copy code
+ls /boot/Image
+Device tree blobs:
+bash
+Copy code
+ls /boot/*.dtb
+Overlays:
+bash
+Copy code
+ls /boot/overlays/*.dtbo
+Modules:
+bash
+Copy code
+ls /lib/modules/
+Update config.txt if Needed: If the kernel image file has a custom name, edit the boot configuration:
+
+bash
+Copy code
+sudo nano /boot/config.txt
+Add or modify:
+
+text
+Copy code
+kernel=Image
+Save and exit (Ctrl+O, Ctrl+X).
+
+Reboot the Raspberry Pi:
+
+bash
+Copy code
+sudo reboot
+Verify the New Kernel: After the reboot, check the running kernel version:
+
+bash
+Copy code
+uname -r
+
+
+
+

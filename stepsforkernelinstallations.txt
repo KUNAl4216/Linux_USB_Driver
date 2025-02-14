@@ -1,0 +1,94 @@
+git clone --depth=1 --branch rpi-6.0.y https://github.com/raspberrypi/linux
+
+cd Linux 
+
+KERNEL=kernel7
+
+
+sudo apt install flex bison
+
+make bcm2709_defconfig
+
+make -j6 zImage modules dtbs
+
+sudo make modules_install
+
+ sudo make modules_install
+//sed: can't read modules.order: No such file or directory
+//make: *** [Makefile:1483: __modinst_pre] Error 2
+
+ make modules cmd apply but error faced 
+
+ // CALL    scripts/checksyscalls.sh
+  CALL    scripts/atomic/check-atomics.sh
+  CHK     include/generated/compile.h
+  HOSTCC  certs/extract-cert
+certs/extract-cert.c:21:10: fatal error: openssl/bio.h: No such file or directory
+   21 | #include <openssl/bio.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [scripts/Makefile.host:95: certs/extract-cert] Error 1
+make: *** [Makefile:1852: certs] Error 2//
+
+
+sudo apt-get update
+
+
+pi@raspberrypi:~/usb/kernel/linux $ sudo apt-get install libssl-dev
+
+Verify Installation: After installation, verify that the OpenSSL headers (like bio.h) are available:
+ls /usr/include/openssl/bio.h
+
+
+
+Clean and Rebuild: Sometimes, after installing new dependencies, it's a good idea to clean the build and rebuild:
+make clean
+make
+make modules
+
+
+
+Re-run make: Now, try to run make and make modules_install again:
+sudo make modules_install
+
+
+
+
+
+
+sudo cp arch/arm64/boot/dts/Broadcom/*.dtb /boot/
+
+sudo cp arch/arm64/boot/dts/overlays/*.dth /boot/overlays/
+
+
+
+
+
+// 
+
+Build and Install Modules Build and install kernel modules:
+
+make ARCH=arm modules
+sudo make ARCH=arm modules_install	
+
+
+//
+
+
+
+// steps firstly i want to create a file like hello_.c then into char ls drivers/char/  then edit in to Kconfig file entery that i create module or defaulte Y /N for now i have to keep as Y 
+
+then goto  vi broadcom/bcm2709-rpi.dtsi here to edit
+
+vi broadcom/bcm2709-rpi-2-b.dts
+kunal@Kunal:~/kernel/linux/arch/arm/boot/dts$ vi broadcom/bcm2709-rpi.dtsi
+
+
+ls drivers/char/
+
+kunal@Kunal:~/kernel/linux$ ls drivers/char/Kconfig
+
+vi drivers/char/Kconfig
+
+
+

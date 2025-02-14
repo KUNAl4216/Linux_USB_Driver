@@ -1,0 +1,24 @@
+On Local Machine:
+Clone kernel source:
+bash
+Copy code
+git clone --depth=1 https://github.com/raspberrypi/linux
+cd linux
+Configure kernel:
+bash
+Copy code
+make ARCH=arm bcm2709_defconfig
+Compile kernel and modules:
+bash
+Copy code
+make ARCH=arm -j$(nproc)
+make ARCH=arm modules
+Transfer files:
+bash
+Copy code
+scp arch/arm/boot/Image pi@<raspberrypi_ip>:/boot/
+scp arch/arm/boot/dts/*.dtb pi@<raspberrypi_ip>:/boot/
+scp arch/arm/boot/dts/overlays/*.dtbo pi@<raspberrypi_ip>:/boot/overlays/
+scp -r output/lib/modules pi@<raspberrypi_ip>:/lib/
+
+
